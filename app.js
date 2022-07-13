@@ -29,7 +29,7 @@ app.post("/", function(req, res){
     const jsonData = JSON.stringify(data);
     const url = 'https://us8.api.mailchimp.com/3.0/lists/8b79aef9d4/members'
     const post_options = {
-        auth: "sighkrs1996@gmail.com:158af350f22defc99acb54db6e24dffb-us8",
+        auth: "sighkrs1996@gmail.com:594ab05eecb4619bf5fa578c38a9f0db-us8",
         method: 'POST',
     };
     const post_request = http.request(url, post_options, function(response){
@@ -39,9 +39,9 @@ app.post("/", function(req, res){
         else{
             res.sendFile(__dirname + "/failure.html");
         }
-        // response.on('data', function (data) {
-        //     console.log(JSON.parse(data));
-        // });
+        response.on('data', function (data) {
+            console.log(JSON.parse(data));
+        });
     });
     post_request.write(jsonData);
     post_request.end();
